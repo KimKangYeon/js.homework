@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1>여기가 바뀔거에요</h1>
+    <h1 class ="result">_________</h1>
+    <input type="text" class="input"/>
+
+<script>
+    let result = document.querySelector('.result') 
+    let input = document.querySelector('.input')
+
+
+    function enterKey(event) {
+        if (event.keyCode === 13) {
+            result.textContent = input.value
+            input.value=''
+        }
+    }   
+    input.addEventListener('keypress', enterKey)
+</script>
+
+
+</body>
+
+
+</html>
+<!-- let result = document.querySelector('#result')
+    let input = document.querySelector('#input')
+
+    input.addEventListener('keydown', keydown)
+    function keydown(event) {
+        var x = event.keycode;
+        var y = event.code;
+        if (x === 13){
+        document.getElementById("result").innerHTML = y + " 를 누르셨네요";
+        } else {
+        document.getElementById("result").innerHTML = "이상한 키를 누르셨네요";
+        }
+        } -->
