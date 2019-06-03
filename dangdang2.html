@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+      src="http://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <title>댕댕이</title>
+</head>
+<body>
+    <button id="start">댕댕이 사진!</button>
+    <div class="button"></div>
+    
+    <script>
+        $("#start").click(function() {
+            $(".button").empty();
+            $.ajax({
+                type: "GET",
+                url: "https://dog.ceo/api/breeds/image/random",
+                dataType: "json",
+                success: function(data) {
+                    $(".button").append("<img src=" + data.message + ">")
+                }
+            });
+        });
+    </script>
+</body>
+</html>
