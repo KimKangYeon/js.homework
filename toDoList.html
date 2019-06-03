@@ -46,34 +46,30 @@
       })
       // + 버튼 클릭 시, input fade 토글
       
-      $('.list i.far').click(function() {
-        
-        $(this).parent().parent().fadeOut(500)
+      $('.list div span').click(function(){
+        $(this).parent().fadeOut( 500 )
+        $(this).stopPbropagation
       })
   
       // trash icon 클릭 시, 500ms 간 fadeOut 후 사라짐
-      $('.list div').click(function() {
-        $(this).removeClass()
-        $(this).addClass('complete')
-      })
-
-      // 작성된 리스트 누르면 .complete라는 클래스 토글
       $('.list').on("click", "div", function(){
         $(this).toggleClass("complete")
       })
 
+      // 작성된 리스트 누르면 .complete라는 클래스 토글
+      $(input).keydown(function(e){
+         if (e.keyCode === 13){
+         let a = $('input').val()
+         $('.list').append(`<div>-${a} <span> <i class="far fa-trash-alt icon"></i></span></div>`);
+            }
+      })
+
       // 입력 후 엔터 입력 시, 새로운 리스트 생성
-      $('#input').keydown(function(key){
-        if (key.keyCode === 13) {
-        $('.list').append("<div> - "+input.value+"<span><i class='far fa-trash-alt icon'></i></span></div>")
-        $('#input').val('')
-      }
+      $('#delete_all').click(function(){
+         $('.complete').fadeOut(500)
       })
 
       // 상단의 trash 버튼 클릭 시, 완료된 리스트 모두 삭제
-      $('#delete_all').click(function(){
-      $('.complete').fadeOut(500,'swing')
-      })
       
     </script>
   </body>
